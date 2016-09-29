@@ -59,6 +59,13 @@ public class Lens {
                 return null;
             }
         });
+
+        findAndHookMethod("Zq", lpparam.classLoader, "a", findClass("Zq", lpparam.classLoader), LensClass, new XC_MethodHook() {
+            @Override
+            protected void afterHookedMethod(MethodHookParam param) throws Throwable {
+                param.setResult(true);
+            }
+        });
     }
 
     public static void onJsonResultRebuilt(XC_MethodHook.MethodHookParam param, Object arg1, Object arg2) {
